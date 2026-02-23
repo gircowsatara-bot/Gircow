@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>अमृततुल्य गीर गाय दूध | App</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #064e3b; /* Dark Green */
+            --accent: #f59e0b;  /* Golden */
+            --bg: #f3f6f4;
+            --white: #ffffff;
+        }
+
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #1a1a1a;
+            padding-bottom: 100px; /* Space for Bottom Nav */
+        }
+
+        /* --- App Header (Top Bar) --- */
+        .app-bar {
+            background: var(--primary);
+            height: 140px;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .app-bar h1 { font-size: 1.6rem; font-weight: 800; }
+        .app-bar p { font-size: 1rem; color: var(--accent); font-weight: 600; font-style: italic; }
+
+        .app-container { padding: 0 16px; margin-top: -40px; }
+
+        /* --- Premium Cards --- */
+        .app-card {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        /* --- Price Display --- */
+        .price-tag { text-align: center; padding: 10px 0; }
+        .price-tag h2 { font-size: 3.5rem; color: var(--primary); font-weight: 800; }
+        .price-tag span { font-size: 1.3rem; color: #666; font-weight: 400; }
+
+        /* --- Features List --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .f-item {
+            background: #f1f8f3;
+            padding: 15px 10px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #e2eee5;
+        }
+        .f-item i { font-size: 1.6rem; color: var(--primary); margin-bottom: 8px; display: block; }
+        .f-item span { font-size: 0.85rem; font-weight: 700; color: #333; }
+
+        /* --- Registration Section --- */
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .select-group {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+        }
+        .select-group label { font-size: 0.85rem; font-weight: 800; color: var(--primary); display: block; margin-bottom: 8px; }
+        select {
+            width: 100%; padding: 12px; border: 2px solid #edf2f7; border-radius: 12px;
+            font-size: 1rem; font-weight: 700; outline: none; background: white;
+        }
+
+        .location-box {
+            background: #fff4e5;
+            color: #d97706;
+            padding: 14px;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-align: center;
+            margin-top: 15px;
+            border: 1px dashed #d97706;
+        }
+
+        /* --- Bottom Navigation (App Style) --- */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: var(--white);
+            height: 80px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -5px 25px rgba(0,0,0,0.08);
+            border-radius: 30px 30px 0 0;
+            z-index: 1000;
+        }
+
+        .nav-link { text-align: center; text-decoration: none; color: #9ca3af; flex: 1; }
+        .nav-link.active { color: var(--primary); }
+        .nav-link i { font-size: 1.5rem; display: block; margin-bottom: 4px; }
+        .nav-link span { font-size: 0.75rem; font-weight: 700; }
+
+        .order-btn-nav {
+            background: var(--primary);
+            color: white !important;
+            width: 65px; height: 65px;
+            border-radius: 22px;
+            display: flex; flex-direction: column;
+            justify-content: center;
+            margin-top: -45px;
+            box-shadow: 0 10px 20px rgba(6, 78, 59, 0.3);
+        }
+
+        /* --- Footer Info --- */
+        .app-footer { text-align: center; padding: 30px 20px; }
+        .dark-label { 
+            display: block;
+            font-weight: 900; 
+            font-size: 1.1rem; 
+            color: #000; /* Pure Black for Go Sevak */
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+        }
+        .founder-name { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+
+    </style>
+</head>
+<body>
+
+    <div class="app-bar">
+        <h1>अमृततुल्य गीर गाय दूध</h1>
+        <p>चव जी मनाला तृप्त करेल</p>
+    </div>
+
+    <div class="app-container">
+        <div class="app-card price-tag">
+            <span>शुद्ध ए-२ (A2) दूध</span>
+            <h2>₹८० <span>/ लिटर</span></h2>
+            
+            <div class="features-grid">
+                <div class="f-item"><i class="fas fa-leaf"></i><span>१००% नैसर्गिक</span></div>
+                <div class="f-item"><i class="fas fa-check-double"></i><span>विनाभेसळ</span></div>
+                <div class="f-item"><i class="fas fa-truck-fast"></i><span>घरपोच सेवा</span></div>
+                <div class="f-item"><i class="fas fa-heart"></i><span>आरोग्यदायी</span></div>
+            </div>
+
+            <div class="location-box">
+                <i class="fas fa-map-marker-alt"></i> पांचगणी शहर परिसरातील ५ किमी पर्यंत नोंदणी सुरु
+            </div>
+        </div>
+
+        <div class="app-card">
+            <div class="section-title">
+                <i class="fas fa-edit"></i> नवीन नोंदणी करा
+            </div>
+            <div class="select-group">
+                <label>दुधाचे प्रमाण निवडा:</label>
+                <select id="milk_qty">
+                    <option value="१ लिटर">१ लिटर</option>
+                    <option value="२ लिटर">२ लिटर</option>
+                    <option value="३ लिटर">३ लिटर</option>
+                    <option value="५ लिटर">५ लिटर</option>
+                    <option value="दररोज (महिनाभर)">दररोज (मासिक नोंदणी)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="app-card">
+            <div class="section-title">
+                <i class="fas fa-info-circle"></i> गीर गायचे दूध का प्यावे?
+            </div>
+            <div style="font-size: 0.95rem; line-height: 1.7; color: #444;">
+                • स्मरणशक्ती वाढवण्यास मदत करते<br>
+                • रोगप्रतिकारशक्ती (Immunity) वाढवते<br>
+                • पचायला हलके आणि सात्त्विक<br>
+                • हाडांच्या मजबुतीसाठी उत्तम
+            </div>
+        </div>
+
+        <div class="app-footer">
+            <span class="dark-label">● गो सेवक ●</span>
+            <h3 class="founder-name">श्रीहरी तुकाराम गोळे</h3>
+            <p style="color: #666; font-size: 0.9rem; margin-top: 5px;">मु. पो. जावळी, जिल्हा सातारा</p>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-link active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="javascript:void(0);" onclick="orderMilk()" class="nav-link order-btn-nav">
+            <i class="fab fa-whatsapp"></i>
+            <span>Order</span>
+        </a>
+        <a href="tel:9594743949" class="nav-link">
+            <i class="fas fa-phone-alt"></i>
+            <span>Call</span>
+        </a>
+    </nav>
+
+    <script>
+        function orderMilk() {
+            const qty = document.getElementById('milk_qty').value;
+            const msg = `नमस्कार श्रीहरीजी (गो सेवक), मला ${qty} शुद्ध गीर गायचे दूध हवे आहे. १००% नैसर्गिक, विनाभेसळ आणि आरोग्यदायी दुधासाठी माझी नोंदणी करावी. (पाचगणी परिसर ५ किमी)`;
+            const url = `https://wa.me/919594743949?text=${encodeURIComponent(msg)}`;
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
